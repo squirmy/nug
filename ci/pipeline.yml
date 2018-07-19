@@ -1,0 +1,15 @@
+---
+resources:
+- name: nug
+  type: git
+  source:
+    uri: https://github.com/squirmy/nug
+
+jobs:
+- name: say-hello
+  public: true
+  plan:
+  - get: nug
+    trigger: true
+  - task: build
+    file: nug/ci/build.yml
